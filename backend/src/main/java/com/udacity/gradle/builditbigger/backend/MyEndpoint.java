@@ -28,10 +28,10 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "myJoke")
-    public MyBean myJoke(){
+    public JokeFetcher myJoke(){
         JokeJavaLib joke = new JokeJavaLib();
-        MyBean result = new MyBean();
-        result.setData(joke.getJokeString());
+        JokeFetcher result = new JokeFetcher();
+        result.setJoke(joke.getJoke());
         return result;
     }
 }

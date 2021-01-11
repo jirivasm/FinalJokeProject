@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void tellJoke(View view) {
 
         JokeJavaLib joke = new JokeJavaLib();
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this,joke.getJokeString()));
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(this,joke.getJoke()));
     }
 
 }
@@ -87,10 +87,11 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         String joke = params[0].second;
 
 
+        //if i just return joke then i am not getting it from the backend.
         try {
-           return myApiService.myJoke().execute().getData();
-        } catch (IOException e) {
-            return e.getMessage();
+         return myApiService.myJoke().execute().getJoke();
+     } catch (IOException e) {
+          return e.getMessage();
         }
     }
 

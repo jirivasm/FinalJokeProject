@@ -11,7 +11,7 @@ ArrayList<String> myJokes = new ArrayList<>();
 private String myJoke;
 
     public JokeJavaLib() {
-       this.myJoke = getJokeString();
+       myJoke =  getJokeString();
     }
 
     private ArrayList<String> GetJokes(){
@@ -51,7 +51,7 @@ private String myJoke;
 
    }
 
-   public String  getJokeString()
+   private String  getJokeString()
    {
         GetJokes();
        int min = 0;
@@ -60,6 +60,10 @@ private String myJoke;
        String jokeString = myJokes.get(random);
        return jokeString;
 
+   }
+   public String getJoke()
+   {
+       return myJoke;
    }
 }
 
